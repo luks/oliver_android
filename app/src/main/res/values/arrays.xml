@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+<string-array name="listArray">
+    <item>metric</item>
+    <item>imperial</item>
+</string-array>
+
+<string-array name="listValues">
+    <item>metric</item>
+    <item>imperial</item>
+</string-array>
+
+
+<string-array name="listArrayLocation">
+    <item>prague</item>
+    <item>dubrovnik</item>
+    <item>split</item>
+    <item>zagreb</item>
+    <item>liberec</item>
+</string-array>
+
+<string-array name="listValuesLocation">
+    <item>prague</item>
+    <item>dubrovnik</item>
+    <item>split</item>
+    <item>zagreb</item>
+    <item>liberec</item>
+</string-array>
+</resources>

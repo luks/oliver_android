@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <EditTextPreference android:title="Your api key"
+        android:key="apikey"
+        android:summary="Please provide your apikey" />
+    <!--<EditTextPreference-->
+        <!--android:key="@string/pref_location_key"-->
+        <!--android:title="@string/pref_location_title"-->
+        <!--android:summary="@string/pref_location_summary"-->
+        <!--android:defaultValue="@string/pref_location_default"-->
+        <!--android:inputType="text"-->
+        <!--android:singleLine="true" />-->
+    <!---->
+    <ListPreference
+        android:key="@string/pref_location_key"
+        android:title="@string/pref_location_title"
+        android:summary="@string/pref_location_summary"
+        android:defaultValue="@string/pref_location_default"
+        android:entries="@array/listArrayLocation"
+        android:entryValues="@array/listValuesLocation" />
+
+
+
+    <ListPreference
+        android:title="@string/pref_unit_title"
+        android:summary="@string/pref_unit_summary"
+        android:key="@string/pref_unit_key"
+        android:defaultValue="@string/pref_unit_default"
+        android:entries="@array/listArray"
+        android:entryValues="@array/listValues" />
+
+    <CheckBoxPreference android:title="Application Updates"
+        android:defaultValue="false"
+        android:summary="This option if selected will allow the application to check for latest versions."
+        android:key="applicationUpdates" />
+
+</PreferenceScreen>
