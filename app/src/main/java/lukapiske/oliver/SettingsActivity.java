@@ -1,6 +1,7 @@
 package lukapiske.oliver;
 
 import android.content.SharedPreferences;
+
 import android.os.Bundle;
 import android.preference.CheckBoxPreference;
 import android.preference.ListPreference;
@@ -9,12 +10,24 @@ import android.preference.PreferenceActivity;
 import android.preference.PreferenceFragment;
 import android.preference.PreferenceGroup;
 
-public  class SettingsActivity extends PreferenceActivity {
-//
+
+public class SettingsActivity extends PreferenceActivity {
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         getFragmentManager().beginTransaction().replace(android.R.id.content, new SettingsFragment()).commit();
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+
+    }
+
+    @Override
+    public void onStop() {
+        super.onStop();
     }
 
 
@@ -55,12 +68,12 @@ public  class SettingsActivity extends PreferenceActivity {
                 listPreference.setSummary(listPreference.getEntry());
                 return;
             }
+
+            SharedPreferences sharedPrefs = getPreferenceManager().getSharedPreferences();
             if (preference instanceof CheckBoxPreference) {
-                CheckBoxPreference checkBoxPreference = (CheckBoxPreference) preference;
-                checkBoxPreference.setSummary(checkBoxPreference.getSummary());
+                preference.setDefaultValue(sharedPrefs.getBoolean(key, false));
                 return;
             }
-            SharedPreferences sharedPrefs = getPreferenceManager().getSharedPreferences();
             preference.setSummary(sharedPrefs.getString(key, "Default"));
         }
     }

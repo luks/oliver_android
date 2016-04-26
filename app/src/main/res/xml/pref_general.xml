@@ -6,14 +6,6 @@
     <EditTextPreference android:title="Your api key"
         android:key="apikey"
         android:summary="Please provide your apikey" />
-    <!--<EditTextPreference-->
-        <!--android:key="@string/pref_location_key"-->
-        <!--android:title="@string/pref_location_title"-->
-        <!--android:summary="@string/pref_location_summary"-->
-        <!--android:defaultValue="@string/pref_location_default"-->
-        <!--android:inputType="text"-->
-        <!--android:singleLine="true" />-->
-    <!---->
     <ListPreference
         android:key="@string/pref_location_key"
         android:title="@string/pref_location_title"
@@ -21,8 +13,6 @@
         android:defaultValue="@string/pref_location_default"
         android:entries="@array/listArrayLocation"
         android:entryValues="@array/listValuesLocation" />
-
-
 
     <ListPreference
         android:title="@string/pref_unit_title"
@@ -33,7 +23,7 @@
         android:entryValues="@array/listValues" />
 
     <CheckBoxPreference android:title="Application Updates"
-        android:defaultValue="false"
+        android:defaultValue="true"
         android:summary="This option if selected will allow the application to check for latest versions."
         android:key="applicationUpdates" />
 
