@@ -1,6 +1,6 @@
 package lukapiske.oliver;
 
-import android.content.Context;
+
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.net.Uri;
@@ -42,6 +42,7 @@ public class ForecastFragment extends Fragment {
 
     // make ArrayAdapter global so I could access it from AsyncTask class
     private ArrayAdapter<String> arrayAdapter;
+    private final String LOG_TAG = ForecastFragment.class.getSimpleName();
 
     public ForecastFragment() {
 
@@ -119,8 +120,24 @@ public class ForecastFragment extends Fragment {
             startActivity(i);
             return true;
         }
+        if (id == R.id.action_map) {
+            openPreferredLocationInMap();
+        }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    private void openPreferredLocationInMap() {
+        SharedPreferences SP = PreferenceManager.getDefaultSharedPreferences(getActivity().getBaseContext());
+        String location = SP.getString("location", "prague");
+        Intent intent = new Intent(Intent.ACTION_VIEW);
+        Uri geoLocation =  Uri.parse("geo:0,0?").buildUpon().appendQueryParameter("q", location).build();
+        intent.setData(geoLocation);
+        if (intent.resolveActivity(getActivity().getPackageManager()) != null) {
+            startActivity(intent);
+        } else {
+            Log.d(LOG_TAG, "Couldn't call " + location + ", no receiving apps installed!");
+        }
     }
 
 
